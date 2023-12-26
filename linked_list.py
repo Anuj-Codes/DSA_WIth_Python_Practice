@@ -69,7 +69,7 @@ class Sll:
             if temp.item==data:
                 self.start=temp.next
             else:
-                while temp.next is not None:
+                while temp.next is not None: #checking current note next if it is None or not
                     if temp.next.item==data:
                         temp.next=temp.next.next
                         break
