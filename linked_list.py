@@ -56,6 +56,28 @@ class Sll:
                 temp=temp.next
 
             temp.next=None
+    
+    def delete_specific_item(self,data):
+        if self.start is None:
+            pass
+        elif self.start.next is None:
+            if self.start.item==data:
+                self.start=None
+        else:
+            temp=self.start
+
+            if temp.item==data:
+                self.start=temp.next
+            else:
+                while temp.next is not None:
+                    if temp.next.item==data:
+                        temp.next=temp.next.next
+                        break
+                    temp=temp.next
+
+
+
+    
 
     def print_list(self):
         temp=self.start
@@ -82,29 +104,33 @@ print("------",end='\n')
 mylist.insert_after(mylist.search(70),90)
 mylist.print_list()
 print()
-print("delete first",end='\n')
+# print("delete first",end='\n')
+# print("--------",end='\n')
+# mylist.delete_first()
+# mylist.print_list()
+# print()
+# print("delete first",end='\n')
+# print("--------",end='\n')
+# mylist.delete_first()
+# mylist.print_list()
+# print()
+# print("delete first",end='\n')
+# print("--------",end='\n')
+# mylist.delete_first()
+# mylist.print_list()
+# print()
+# print("delete last",end='\n')
+# print("--------",end='\n')
+# mylist.delete_last()
+# mylist.print_list()
+# print()
+# print("delete last",end='\n')
+# print("--------",end='\n')
+# mylist.delete_last()
+# mylist.print_list()
+print("delete specific item",end='\n')
 print("--------",end='\n')
-mylist.delete_first()
-mylist.print_list()
-print()
-print("delete first",end='\n')
-print("--------",end='\n')
-mylist.delete_first()
-mylist.print_list()
-print()
-print("delete first",end='\n')
-print("--------",end='\n')
-mylist.delete_first()
-mylist.print_list()
-print()
-print("delete last",end='\n')
-print("--------",end='\n')
-mylist.delete_last()
-mylist.print_list()
-print()
-print("delete last",end='\n')
-print("--------",end='\n')
-mylist.delete_last()
+mylist.delete_specific_item(10)
 mylist.print_list()
 
 
