@@ -86,24 +86,43 @@ class Sll:
             print(temp.item,end=' ')
             temp=temp.next
         #print(temp.item,end=' ')
+    
+    def __iter__(self):
+        return SLLIterator(self.start)
+    
 
+class SLLIterator:
+    def __init__(self,start):
+        self.current=start
+    
+    def __iter__(self):
+        return self
+    
+    def __next__(self):
+        if not self.current:
+            raise StopIteration
+        data=self.current.item
+        self.current=self.current.next
+        return data
 mylist=Sll()
 
 mylist.insert_at_start(10)
-mylist.insert_at_start(20)
+mylist.insert_at_start(60)
 mylist.insert_at_start(30)
 mylist.insert_at_start(40)
 # mylist.print_list()
+for i in mylist:
+    print(i,end=' ')
 
-mylist.insert_at_last(70)
-mylist.print_list()
-print("------",end='\n')
+# mylist.insert_at_last(70)
+# mylist.print_list()
+# print("------",end='\n')
 # print(mylist.is_empty())
 # print(f"item is at node {mylist.search(80)} and item is not present")
 # print(f"item is at node {mylist.search(70)} and item is present")
-mylist.insert_after(mylist.search(70),90)
-mylist.print_list()
-print()
+# mylist.insert_after(mylist.search(70),90)
+# mylist.print_list()
+# print()
 # print("delete first",end='\n')
 # print("--------",end='\n')
 # mylist.delete_first()
@@ -128,10 +147,10 @@ print()
 # print("--------",end='\n')
 # mylist.delete_last()
 # mylist.print_list()
-print("delete specific item",end='\n')
-print("--------",end='\n')
-mylist.delete_specific_item(10)
-mylist.print_list()
+# print("delete specific item",end='\n')
+# print("--------",end='\n')
+# mylist.delete_specific_item(10)
+# mylist.print_list()
 
 
 
