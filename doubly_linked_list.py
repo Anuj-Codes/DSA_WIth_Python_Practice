@@ -18,6 +18,7 @@ class Dll:
     def insert_at_start(self,data):
         if self.start is not None:
             n=Node(data,self.start.prev,self.start)
+            self.start.prev=n
             self.start=n
         else:
             n=Node(data)
@@ -41,7 +42,7 @@ class Dll:
             if self.start.item==data:
                 return f"data {data} is present at {self.start} address/reference"
             else:
-                return f"data {data} is not present at {self.start} address/reference"
+                return f"data {data} is not present in DLL"
         
         elif self.start is None:
             return "DLL is empty"
@@ -52,7 +53,7 @@ class Dll:
                     return f"data {data} is present at {temp} address/reference"
                 else:
                     temp=temp.next
-            return f"data {data} is not present at {self.start} address/reference"
+            return f"data {data} is not present in DLL"
    
     def insert_after(self,data,new_data):
         if self.start.next is None:
@@ -80,12 +81,17 @@ class Dll:
     def print_Dlist(self):
         temp=self.start
         while temp is not None:
-            print(temp.item,end=' ')
+            print(temp.prev)
+            print(temp.item)
+            print(temp.next)
+            print()
+            #print(temp.item,end=' ')
             temp=temp.next      
     
     def delete_first(self):
         if self.start is not None:
             self.start=self.start.next
+            self.start.next.prev=None
         elif self.start.next is None:
             self.start=None
         
@@ -116,6 +122,9 @@ class Dll:
             temp=self.start
             print("first item of DLL ",temp.item)
             while temp is not None:
+                print(temp.prev)
+                print(temp.item)
+                print(temp.next)
                 if temp.item==data and temp.next is not None:
                     temp.prev.next=temp.next.prev
                     temp.next.prev=temp.prev.next
@@ -123,7 +132,8 @@ class Dll:
                 elif temp.item==data and temp.next is None:
                     print("inside this if")
                     print(temp.item)
-                    print(temp.prev)
+                    print("next ",temp.next)
+                    print("prev " ,temp.prev)
                     temp.prev.next=None
                     break
                 
@@ -132,21 +142,26 @@ class Dll:
                     temp=temp.next
             
 myDlist=Dll()
-print(myDlist.is_empty())
+# print(myDlist.is_empty())
 myDlist.insert_at_start(10)
+# myDlist.print_Dlist()
+# print()
+print("-------")
 myDlist.insert_at_start(20)
 myDlist.insert_at_start(30)
 myDlist.insert_at_start(40)
 myDlist.print_Dlist()
 print()
-print(myDlist.is_empty())
+# print(myDlist.is_empty())
 print("-----------")
 myDlist.insert_at_last(90)
 myDlist.insert_at_last(80)
 myDlist.print_Dlist()
 print()
 print(myDlist.search(30))
-print(myDlist.insert_after(10,60))
+print(myDlist.search(60))
+print(myDlist.search(90))
+print(myDlist.insert_after(10,120))
 myDlist.print_Dlist()
 print()
 print("deleting the items")
@@ -164,7 +179,9 @@ myDlist.print_Dlist()
 print()
 myDlist.delete_last()
 myDlist.print_Dlist()
-# print()
+print()
+print("final check---------")
+myDlist.print_Dlist()
 # print(myDlist.delete_specific_element(10))
 # myDlist.print_Dlist()
 
