@@ -59,9 +59,8 @@ class Dll:
         if self.start.next is None:
             if self.start.item==data:
                 n=Node(new_data)
-                n.next=self.start
-                self.start.prev=n
-                self.start=n
+                n.prev=self.start
+                self.start.next=n
             else:
                 return "data is not found" 
         elif self.start is not None:
@@ -70,9 +69,11 @@ class Dll:
             n=Node(new_data)
             while temp is not None:
                 if temp.item==data:
-                    n.next=temp.next
-                    temp.next=n
                     n.prev=temp
+                    n.next=temp.next
+                    temp.next.prev=n
+                    temp.next=n
+                   
                     break
                 else:
                     temp=temp.next
@@ -155,35 +156,36 @@ print()
 # print(myDlist.is_empty())
 print("-----------")
 myDlist.insert_at_last(90)
-myDlist.insert_at_last(80)
 myDlist.print_Dlist()
-print()
-print(myDlist.search(30))
-print(myDlist.search(60))
-print(myDlist.search(90))
+# myDlist.insert_at_last(80)
+# myDlist.print_Dlist()
+# print()
+# print(myDlist.search(30))
+# print(myDlist.search(60))
+# print(myDlist.search(90))
 print(myDlist.insert_after(10,120))
 myDlist.print_Dlist()
 print()
-print("deleting the items")
-myDlist.delete_first()
-myDlist.print_Dlist()
-print()
-myDlist.delete_first()
-myDlist.print_Dlist()
-print()
-myDlist.delete_last()
-myDlist.print_Dlist()
-print()
-myDlist.delete_last()
-myDlist.print_Dlist()
-print()
-myDlist.delete_last()
-myDlist.print_Dlist()
-print()
-print("final check---------")
-myDlist.print_Dlist()
-# print(myDlist.delete_specific_element(10))
+# print("deleting the items")
+# myDlist.delete_first()
 # myDlist.print_Dlist()
+# print()
+# myDlist.delete_first()
+# myDlist.print_Dlist()
+# print()
+# myDlist.delete_last()
+# myDlist.print_Dlist()
+# print()
+# myDlist.delete_last()
+# myDlist.print_Dlist()
+# print()
+# myDlist.delete_last()
+# myDlist.print_Dlist()
+# print()
+# print("final check---------")
+# myDlist.print_Dlist()
+# # print(myDlist.delete_specific_element(10))
+# # myDlist.print_Dlist()
 
 
 
