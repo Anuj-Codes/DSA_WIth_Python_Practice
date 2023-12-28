@@ -82,17 +82,18 @@ class Dll:
     def print_Dlist(self):
         temp=self.start
         while temp is not None:
-            print(temp.prev)
-            print(temp.item)
-            print(temp.next)
-            print()
-            #print(temp.item,end=' ')
+            # print(temp.prev)
+            # print(temp.item)
+            # print(temp.next)
+            # print()
+            print(temp.item,end=' ')
             temp=temp.next      
     
     def delete_first(self):
         if self.start is not None:
-            self.start=self.start.next
             self.start.next.prev=None
+            self.start=self.start.next
+            
         elif self.start.next is None:
             self.start=None
         
@@ -119,27 +120,27 @@ class Dll:
             else:
                 return "data is not found in DLL" 
         else:
-            print("inside here123")
+            # print("inside here123")
             temp=self.start
-            print("first item of DLL ",temp.item)
+            # print("first item of DLL ",temp.item)
             while temp is not None:
-                print(temp.prev)
-                print(temp.item)
-                print(temp.next)
+                # print(temp.prev)
+                # print(temp.item)
+                # print(temp.next)
                 if temp.item==data and temp.next is not None:
                     temp.prev.next=temp.next.prev
                     temp.next.prev=temp.prev.next
                     break
                 elif temp.item==data and temp.next is None:
-                    print("inside this if")
-                    print(temp.item)
-                    print("next ",temp.next)
-                    print("prev " ,temp.prev)
+                    # print("inside this if")
+                    # print(temp.item)
+                    # print("next ",temp.next)
+                    # print("prev " ,temp.prev)
                     temp.prev.next=None
                     break
                 
                 else:
-                    print("inside here")
+                    # print("inside here")
                     temp=temp.next
             
 myDlist=Dll()
@@ -166,26 +167,26 @@ myDlist.print_Dlist()
 print(myDlist.insert_after(10,120))
 myDlist.print_Dlist()
 print()
-# print("deleting the items")
-# myDlist.delete_first()
-# myDlist.print_Dlist()
+print("deleting the items")
+myDlist.delete_first()
+myDlist.print_Dlist()
+print()
+myDlist.delete_first()
+myDlist.print_Dlist()
+print()
+myDlist.delete_last()
+myDlist.print_Dlist()
+print()
+myDlist.delete_last()
+myDlist.print_Dlist()
+print()
+myDlist.delete_last()
+myDlist.print_Dlist()
 # print()
-# myDlist.delete_first()
+print("final check---------")
 # myDlist.print_Dlist()
-# print()
-# myDlist.delete_last()
-# myDlist.print_Dlist()
-# print()
-# myDlist.delete_last()
-# myDlist.print_Dlist()
-# print()
-# myDlist.delete_last()
-# myDlist.print_Dlist()
-# print()
-# print("final check---------")
-# myDlist.print_Dlist()
-# # print(myDlist.delete_specific_element(10))
-# # myDlist.print_Dlist()
+myDlist.delete_specific_element(20)
+myDlist.print_Dlist()
 
 
 
