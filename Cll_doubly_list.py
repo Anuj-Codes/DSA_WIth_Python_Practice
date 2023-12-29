@@ -46,9 +46,24 @@ class CDLL:
             if temp.item==data:
                 return temp
     
-    def insert_after_node(self,new_data,data):
-        n=Node(data)
-
+    def insert_after_node(self,temp,data):
+        if temp is not None:
+            n=Node(data)
+            if temp.next==self.start.prev:
+                # print("inside if this")
+                n.prev=temp
+                n.next=temp.next
+                temp.next=n
+                self.start.prev=n
+            else:
+                # print("inside this now")
+                n.prev=temp
+                n.next=temp.next
+                temp.next.prev=n
+                temp.next=n
+        else:
+            return "item not found in the list"
+            
     def printlist(self):
         temp=self.start
         while temp.next!=self.start:
@@ -60,15 +75,18 @@ class CDLL:
 
 mylist=CDLL()
 mylist.insert_at_start(10)
-# mylist.insert_at_start(20)
+mylist.insert_at_start(20)
 #mylist.insert_at_start(30)
 mylist.printlist()
-print()
-mylist.insert_at_last(30)
-mylist.printlist()
+# print()
+# mylist.insert_at_last(30)
+# mylist.printlist()
 # mylist.insert_at_last(60)
 # print()
 # mylist.printlist()
 print()
-print(mylist.serach(40))
+# print(mylist.serach(30))
+mylist.insert_after_node(mylist.serach(10),60)
+mylist.printlist()
+
             
