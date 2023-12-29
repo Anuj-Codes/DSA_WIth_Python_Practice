@@ -15,12 +15,12 @@ class CDLL:
     def insert_at_start(self,data):
         n=Node(data)
         if  not self.is_empty():
-            if self.start.next==self.start.prev: #checcking if only single node existing in linked list
-                n.prev=self.start.prev
-                n.next=self.start
-                self.start.prev.next=n
-                self.start.prev=n
-                self.start=n
+            # if self.start.next==self.start.prev: #checcking if only single node existing in linked list
+            n.prev=self.start.prev
+            n.next=self.start
+            self.start.prev.next=n
+            self.start.prev=n
+            self.start=n
         else:
             n.prev=n
             n.next=n
@@ -97,16 +97,16 @@ mylist.printlist()
 # mylist.insert_at_last(60)
 # print()
 # mylist.printlist()
-print()
-# # print(mylist.serach(30))
-# print(mylist.insert_after_node(mylist.serach(20),60))
+# print()
+# # # print(mylist.serach(30))
+# # print(mylist.insert_after_node(mylist.serach(20),60))
+# # mylist.printlist()
+# mylist.delete_first()
+# print()
+# print('-----')
 # mylist.printlist()
-mylist.delete_first()
-print()
-print('-----')
-mylist.printlist()
-mylist.delete_first()
-print()
-print('-----')
-mylist.printlist()
+# mylist.delete_first()
+# print()
+# print('-----')
+# mylist.printlist()
             
