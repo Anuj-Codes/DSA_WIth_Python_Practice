@@ -90,13 +90,41 @@ class Cll:
                 temp=self.last.next
                 while temp!=self.last:
                     if temp.next==self.last:
-                        self.delete_last()
-                        break
+                        if self.last.item==data:
+                            self.delete_last()
+                            break
                     if temp.next.item==data:
                         temp.next=temp.next.next
                         break
                     temp=temp.next
                 return "data not found"
+    
+    def __iter__(self):
+        if self.last is None:
+            return CLLiterator(None)
+        else:
+            return CLLiterator(self.last.next)
+
+class CLLiterator:
+    def __init(self,start):
+        self.current=start
+        self.start=start
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.current is None:
+            raise StopIteration
+        else:
+           data=self.current.item
+           self.current=self.current.next
+           if self.current==self.start:
+               raise StopIteration
+               
+           
+           return data
+
 
 
             
