@@ -70,13 +70,18 @@ class CDLL:
             self.start.next.prev=self.start.prev
             self.start.prev.next=self.start.next
             self.start=self.start.next
-
+    
+    def delete_last(self):
+        if not self.is_empty():
+            self.start.prev.prev.next=self.start
+            self.start.prev=self.start.prev.prev
 
     def printlist(self):
         temp=self.start
         while temp.next!=self.start:
             print(temp.item,end=' ')
             temp=temp.next
+        #print("temp.item last ",temp.item)
         print(temp.item,end=' ')
 
 
@@ -94,11 +99,14 @@ mylist.printlist()
 # mylist.printlist()
 print()
 # # print(mylist.serach(30))
-print(mylist.insert_after_node(mylist.serach(20),60))
+# print(mylist.insert_after_node(mylist.serach(20),60))
+# mylist.printlist()
+mylist.delete_first()
+print()
+print('-----')
 mylist.printlist()
 mylist.delete_first()
 print()
 print('-----')
 mylist.printlist()
-
             
