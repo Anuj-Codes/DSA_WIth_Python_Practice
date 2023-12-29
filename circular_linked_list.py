@@ -4,7 +4,7 @@ class Node:
         self.next=next
 
 class Cll:
-    def __init__(self,last):
+    def __init__(self,last=None):
         self.last=last
 
     def is_empty(self):
@@ -43,7 +43,7 @@ class Cll:
                 return temp
             return None
         
-    def insert_after(self,data,temp):
+    def insert_after(self,temp,data):
         if temp is not None:
             n=Node(data,temp.next)
             temp.next=n
@@ -106,9 +106,10 @@ class Cll:
             return CLLiterator(self.last.next)
 
 class CLLiterator:
-    def __init(self,start):
+    def __init__(self,start):
         self.current=start
         self.start=start
+        self.count=0
 
     def __iter__(self):
         return self
@@ -116,17 +117,28 @@ class CLLiterator:
     def __next__(self):
         if self.current is None:
             raise StopIteration
-        else:
-           data=self.current.item
-           self.current=self.current.next
-           if self.current==self.start:
-               raise StopIteration
+        if self.current==self.start and self.count==1:
+            raise StopIteration
                
+        else:
+            self.count=1
+       
+        data=self.current.item
+        self.current=self.current.next
            
-           return data
+        return data
 
 
-
+mylist=Cll()
+mylist.insert_at_start(10)
+mylist.insert_at_start(20)
+mylist.insert_at_last(30)
+mylist.insert_at_last(40)
+mylist.insert_after(mylist.search(10),50)
+mylist.printlist()
+print()
+for x in mylist:
+    print(x)
             
 
         
