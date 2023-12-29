@@ -115,9 +115,9 @@ class CDLLiterator:
             raise StopIteration
         else:
             self.count=1
-            data=self.current.item
-            self.current=self.current.next
-            return data
+        data=self.current.item
+        self.current=self.current.next
+        return data
 
 mylist=CDLL()
 mylist.insert_at_start(10)
