@@ -94,6 +94,30 @@ class CDLL:
             print(temp.item,end=' ')
             temp=temp.next
         print(temp.item,end=' ')
+    
+    def __iter__(self):
+        return CDLLiterator(self.start)
+
+class CDLLiterator:
+    def __init__(self,start):
+        self.current=start
+        self.first=start
+        self.count=0
+    
+    def __iter__(self):
+        return self
+    
+    def __next__(self):
+        if self.current is None:
+            raise StopIteration
+        
+        if self.current==self.first and self.count==1:
+            raise StopIteration
+        else:
+            self.count=1
+            data=self.current.item
+            self.current=self.current.next
+            return data
 
 mylist=CDLL()
 mylist.insert_at_start(10)
@@ -126,10 +150,14 @@ mylist.printlist()
 # print()
 # print('-----')
 # mylist.printlist()
-print(mylist.delete_item(10))
+print(mylist.delete_item(20))
 print()
 print("--------")
 mylist.printlist()
+print()
+print("==========")
+for x in mylist:
+    print(x,end=' ')
 
 
             
