@@ -53,25 +53,22 @@ class CDLL:
     def insert_after_node(self,temp,data):
         if temp is not None:
             n=Node(data)
-            if temp.next==self.start.prev:
-                n.prev=temp
-                n.next=temp.next
-                temp.next=n
-                self.start.prev=n
-            else:
-                n.prev=temp
-                n.next=temp.next
-                temp.next.prev=n
-                temp.next=n
+            n.prev=temp
+            n.next=temp.next
+            temp.next.prev=n
+            temp.next=n
         else:
             return "item not found in the list"
 
 
     def delete_first(self):
         if not self.is_empty():
-            self.start.next.prev=self.start.prev
-            self.start.prev.next=self.start.next
-            self.start=self.start.next
+            if self.start.next==self.start:
+                self.start=None
+            else:
+                self.start.next.prev=self.start.prev
+                self.start.prev.next=self.start.next
+                self.start=self.start.next
     
     def delete_last(self):
         if not self.is_empty():
@@ -83,32 +80,40 @@ class CDLL:
         while temp.next!=self.start:
             print(temp.item,end=' ')
             temp=temp.next
-        #print("temp.item last ",temp.item)
         print(temp.item,end=' ')
-
-
 
 mylist=CDLL()
 mylist.insert_at_start(10)
 mylist.insert_at_start(20)
 mylist.insert_at_start(30)
 mylist.printlist()
+print()
+mylist.insert_at_last(40)
+mylist.printlist()
+mylist.insert_at_last(80)
+print()
+mylist.printlist()
+print()
+# print(mylist.serach(30))
+print(mylist.insert_after_node(mylist.serach(80),60))
+mylist.printlist()
+# mylist.delete_first()
 # print()
-# mylist.insert_at_last(30)
+# print('-----')
 # mylist.printlist()
-# mylist.insert_at_last(60)
+# mylist.delete_first()
 # print()
+# print('-----')
 # mylist.printlist()
-print()
-# # print(mylist.serach(30))
-print(mylist.insert_after_node(mylist.serach(20),60))
-mylist.printlist()
-mylist.delete_first()
-print()
-print('-----')
-mylist.printlist()
-mylist.delete_first()
-print()
-print('-----')
-mylist.printlist()
+# mylist.delete_first()
+# print()
+# print('-----')
+# mylist.printlist()
+# mylist.delete_first()
+# print()
+# print('-----')
+# mylist.printlist()
+
+
+
             
