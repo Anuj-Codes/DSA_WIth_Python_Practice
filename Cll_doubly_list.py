@@ -72,8 +72,11 @@ class CDLL:
     
     def delete_last(self):
         if not self.is_empty():
-            self.start.prev.prev.next=self.start
-            self.start.prev=self.start.prev.prev
+            if self.start.next==self.start:
+                self.start=None
+            else:
+                self.start.prev.prev.next=self.start
+                self.start.prev=self.start.prev.prev
 
     def printlist(self):
         temp=self.start
