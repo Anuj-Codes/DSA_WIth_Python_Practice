@@ -63,7 +63,15 @@ class CDLL:
                 temp.next=n
         else:
             return "item not found in the list"
-            
+
+
+    def delete_first(self):
+        if not self.is_empty():
+            self.start.next.prev=self.start.prev
+            self.start.prev.next=self.start.next
+            self.start=self.start.next
+
+
     def printlist(self):
         temp=self.start
         while temp.next!=self.start:
@@ -76,7 +84,7 @@ class CDLL:
 mylist=CDLL()
 mylist.insert_at_start(10)
 mylist.insert_at_start(20)
-#mylist.insert_at_start(30)
+mylist.insert_at_start(30)
 mylist.printlist()
 # print()
 # mylist.insert_at_last(30)
@@ -85,8 +93,12 @@ mylist.printlist()
 # print()
 # mylist.printlist()
 print()
-# print(mylist.serach(30))
-mylist.insert_after_node(mylist.serach(10),60)
+# # print(mylist.serach(30))
+print(mylist.insert_after_node(mylist.serach(20),60))
+mylist.printlist()
+mylist.delete_first()
+print()
+print('-----')
 mylist.printlist()
 
             
