@@ -77,7 +77,17 @@ class CDLL:
             else:
                 self.start.prev.prev.next=self.start
                 self.start.prev=self.start.prev.prev
-
+    
+    def delete_item(self,data):
+        if not self.is_empty():
+            temp=self.serach(data)
+            if temp is not None:
+                temp.prev.next=temp.next
+                temp.next.prev=temp.prev
+                return None
+            return "item not found"
+        return "linked list is empty"
+        
     def printlist(self):
         temp=self.start
         while temp.next!=self.start:
@@ -116,7 +126,10 @@ mylist.printlist()
 # print()
 # print('-----')
 # mylist.printlist()
-
+print(mylist.delete_item(10))
+print()
+print("--------")
+mylist.printlist()
 
 
             
