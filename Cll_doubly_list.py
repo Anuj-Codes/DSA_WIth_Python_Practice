@@ -33,6 +33,10 @@ class CDLL:
             n.next=self.start
             self.start.prev.next=n
             self.start.prev=n
+        else:
+            n.prev=n
+            n.next=n
+            self.start=n
 
     def serach(self,data):
         if not self.is_empty():
@@ -50,13 +54,11 @@ class CDLL:
         if temp is not None:
             n=Node(data)
             if temp.next==self.start.prev:
-                # print("inside if this")
                 n.prev=temp
                 n.next=temp.next
                 temp.next=n
                 self.start.prev=n
             else:
-                # print("inside this now")
                 n.prev=temp
                 n.next=temp.next
                 temp.next.prev=n
@@ -97,16 +99,16 @@ mylist.printlist()
 # mylist.insert_at_last(60)
 # print()
 # mylist.printlist()
-# print()
-# # # print(mylist.serach(30))
-# # print(mylist.insert_after_node(mylist.serach(20),60))
-# # mylist.printlist()
-# mylist.delete_first()
-# print()
-# print('-----')
-# mylist.printlist()
-# mylist.delete_first()
-# print()
-# print('-----')
-# mylist.printlist()
+print()
+# # print(mylist.serach(30))
+print(mylist.insert_after_node(mylist.serach(20),60))
+mylist.printlist()
+mylist.delete_first()
+print()
+print('-----')
+mylist.printlist()
+mylist.delete_first()
+print()
+print('-----')
+mylist.printlist()
             
