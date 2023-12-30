@@ -21,8 +21,8 @@ class Queue:
         
     def dequeue(self):
         if not self.is_empty():
-            self.mylist.pop()
-            self.rear=self.mylist[-1]
+            self.mylist.pop(0)
+            self.front=self.mylist[0]
         else:
             raise IndexError("Queue is empty")
         
