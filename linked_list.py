@@ -75,10 +75,6 @@ class Sll:
                         break
                     temp=temp.next
 
-
-
-    
-
     def print_list(self):
         temp=self.start
         #print(temp.item,temp.next)
