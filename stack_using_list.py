@@ -37,15 +37,22 @@ class Queue:
             return self.rear
         else:
             raise IndexError("Queue is empty")
-        
+    
+    def size(self):
+        if not self.is_empty():
+            return len(self.mylist) 
+        else:
+            raise IndexError("Queue is empty")
 
 q1=Queue()
 print(q1.is_empty())
 q1.enqueue(10)
 q1.enqueue(20)
 q1.enqueue(30)
+print(f"size of queue is :{q1.size()}")
 print(f"front is : {q1.get_front()}")
 print(f"rear is : {q1.get_rear()}")
 q1.dequeue()
 print(f"front is : {q1.get_front()}")
 print(f"rear is : {q1.get_rear()}")
+print(f"size of queue is :{q1.size()}")
