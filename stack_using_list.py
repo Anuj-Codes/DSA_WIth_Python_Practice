@@ -1,40 +1,30 @@
 class Queue:
     def __init__(self):
         self.mylist=[]
-        self.rear=None
-        self.front=None
+        # self.rear=None
+        # self.front=None
         
     def is_empty(self):
         return len(self.mylist)==0
     
     def enqueue(self,data):
-        if len(self.mylist)>1:
-            self.front=self.mylist[0]
-            self.mylist.append(data)
-            self.rear=self.mylist[-1]
-        else:
-            self.mylist.append(data)
-            self.front=self.mylist[0]
-            self.rear=self.mylist[-1]       
-
-            
-        
+        self.mylist.append(data)
+               
     def dequeue(self):
         if not self.is_empty():
             self.mylist.pop(0)
-            self.front=self.mylist[0]
         else:
             raise IndexError("Queue is empty")
         
     def get_front(self):
         if not self.is_empty():
-            return self.front
+            return self.mylist[0]
         else:
             raise IndexError("Queue is empty")
     
     def get_rear(self):
         if not self.is_empty():
-            return self.rear
+            return self.mylist[-1]
         else:
             raise IndexError("Queue is empty")
     
