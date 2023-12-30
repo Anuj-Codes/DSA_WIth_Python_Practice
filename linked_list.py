@@ -102,13 +102,13 @@ class SLLIterator:
         return data
 mylist=Sll()
 
-mylist.insert_at_start(10)
-mylist.insert_at_start(60)
-mylist.insert_at_start(30)
-mylist.insert_at_start(40)
-# mylist.print_list()
-for i in mylist:
-    print(i,end=' ')
+# mylist.insert_at_start(10)
+# mylist.insert_at_start(60)
+# mylist.insert_at_start(30)
+# mylist.insert_at_start(40)
+# # mylist.print_list()
+# for i in mylist:
+#     print(i,end=' ')
 
 # mylist.insert_at_last(70)
 # mylist.print_list()
