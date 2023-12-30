@@ -4,3 +4,6 @@
 
 # circular doubly linked list with single node example 
 ![image](https://github.com/Anuj-Codes/DSA_WIth_Python_Practice/assets/92272579/b2900ca2-dc8a-48ad-9ce4-50f14002f196)
+
+![image](https://github.com/Anuj-Codes/DSA_WIth_Python_Practice/assets/92272579/23f61d7f-984b-41e7-a33e-bf775741c133)
+
