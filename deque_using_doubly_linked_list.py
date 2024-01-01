@@ -38,8 +38,12 @@ class Deque:
         
     def delete_front(self):
         if not self.is_empty():
-            self.front.next.prev=None
-            self.front=self.front.next
+            if self.front==self.rear:
+                self.front=None
+                self.rear=None
+            else:
+                self.front.next.prev=None
+                self.front=self.front.next
             self.item_count-=1
         else:
             return IndexError("Deque is empty")
@@ -47,8 +51,12 @@ class Deque:
                 
     def delete_rear(self):
         if not self.is_empty():
-            self.rear.prev.next=None
-            self.rear=self.rear.prev
+            if self.front==self.rear:
+                self.front=None
+                self.rear=None
+            else:
+                self.rear.prev.next=None
+                self.rear=self.rear.prev
             self.item_count-=1
         else:
             return IndexError("Deque is empty")
