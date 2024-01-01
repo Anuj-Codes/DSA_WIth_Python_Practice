@@ -15,7 +15,7 @@ class Deque:
     
     
     def insert_front(self,data):
-        n=Node(data)
+        n=Node(data) #created node with prev and next with default None value
         if self.is_empty():
             self.front=n
             self.rear=n
@@ -77,6 +77,7 @@ dq.insert_front(10)
 dq.insert_front(20)
 dq.insert_rear(30)
 dq.insert_rear(40)
+print(dq.size()) 
 print(dq.get_front())
 print(dq.get_rear()) 
 print("-----------------")   
@@ -90,7 +91,8 @@ dq.insert_front(60)
 dq.insert_rear(70)
 dq.insert_rear(80)
 print(dq.get_front())
-print(dq.get_rear())       
+print(dq.get_rear()) 
+print(dq.size())      
                
             
             
