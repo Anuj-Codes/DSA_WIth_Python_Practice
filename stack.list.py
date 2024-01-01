@@ -1,3 +1,4 @@
+#inheriting lis class to impliment stack data structure
 class stack(list):
     def is_empty(self):
         return len(self)==0
