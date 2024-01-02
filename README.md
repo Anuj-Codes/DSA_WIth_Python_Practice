@@ -4,6 +4,12 @@
 
 ![image](https://github.com/Anuj-Codes/DSA_WIth_Python_Practice/assets/92272579/b540d48f-80e5-4cc6-a7be-bd6c68ca5a8e)
 
+![image](https://github.com/Anuj-Codes/DSA_WIth_Python_Practice/assets/92272579/56f58497-64f7-4ab4-a2f3-26c8bda454fa)
+
+![image](https://github.com/Anuj-Codes/DSA_WIth_Python_Practice/assets/92272579/31db1e09-e62d-4a71-95d7-bb3baaaf7957)
+
+
+
 # circular doubly linked list with single node example 
 ![image](https://github.com/Anuj-Codes/DSA_WIth_Python_Practice/assets/92272579/b2900ca2-dc8a-48ad-9ce4-50f14002f196)
 
