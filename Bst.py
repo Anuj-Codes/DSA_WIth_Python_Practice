@@ -12,7 +12,7 @@ class BST:
     def is_empty(self):
         return self.root==None
     
-    def insert_node(self,data):
+    def insert(self,data):
         n=Node(data) #setting left and right as None default
         if not self.is_empty():
             temp=self.root
@@ -28,6 +28,8 @@ class BST:
                 prev.left=n
             else:
                 prev.right=n
+        else:
+            self.root=n
     
     def search(self,data):
         if not self.is_empty():
@@ -46,9 +48,7 @@ class BST:
         if not self.is_empty():
             temp=self.root
             while temp is not None:
-                if temp.left is None:
-                    print(temp.item)
-                else:
+                
                     
         
 
