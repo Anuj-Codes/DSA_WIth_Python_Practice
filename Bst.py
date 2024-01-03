@@ -28,6 +28,19 @@ class BST:
                 prev.left=n
             else:
                 prev.right=n
+    
+    def search(self,data):
+        if not self.is_empty():
+            temp=self.root
+            while temp is not None:
+                if data==temp.item:
+                    return temp
+                else:
+                    if data<temp.item:
+                        temp=temp.left
+                    else:
+                        temp=temp.right
+            return None
     def print_bst(self):
         '''printing the binary search tree using inorder traversal method'''
         if not self.is_empty():
