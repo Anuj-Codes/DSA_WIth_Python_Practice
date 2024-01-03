@@ -1,3 +1,4 @@
+''''Binary search tree python implimentation'''
 class Node:
     def __init__(self,item=None,left=None,right=None):
         self.item=item
