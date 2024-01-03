@@ -20,11 +20,9 @@ class BST:
                 if n.item<temp.item:
                     prev=temp
                     temp=temp.left
-                    #self.root.left=n
                 else:
                     prev=temp
                     temp=temp.right
-                    #self.root.right=n
             if n.item<prev.item:
                 prev.left=n
             else:
@@ -33,7 +31,11 @@ class BST:
         '''printing the binary search tree using inorder traversal method'''
         if not self.is_empty():
             temp=self.root
-            while 
+            while temp is not None:
+                if temp.left is None:
+                    print(temp.item)
+                else:
+                    
         
 
         
