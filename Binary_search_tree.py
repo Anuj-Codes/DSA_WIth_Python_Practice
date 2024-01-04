@@ -71,7 +71,30 @@ class BST:
             self.rpostroder(root.left,result)
             self.rpostroder(root.right,result)
             result.append(root.item)
-                
+    
+    def find_min(self):
+        if not self.is_empty(): 
+            return self.inroder()[0]
+        else:
+            raise IndexError("binary search tree is empty")
+    
+    def find_max(self):
+        if not self.is_empty(): 
+            return self.inroder()[-1]
+        else:
+            raise IndexError("binary search tree is empty")
+    
+    def size(self):
+        if not self.is_empty():
+            return len(self.inroder())
+        else:
+            raise IndexError("binary search tree is empty")
+            
+    
+    def delete_node(self,data):
+        
+        
+                      
 
 bst=BST()
 print(bst.is_empty())
@@ -87,6 +110,9 @@ print("preorder traversal of binary search tree: ",bst.preroder())
 print("postorder traversal of binary search tree: ",bst.postroder())
 print(bst.is_empty())
 print(bst.search(90))
+print(bst.find_min())
+print(bst.find_max())
+print(bst.size())
                  
         
         
