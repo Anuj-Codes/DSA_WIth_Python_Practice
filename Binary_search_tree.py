@@ -26,7 +26,7 @@ class BST:
     
     def search(self,data):
         if not self.is_empty():
-            return self.rsearch(self,self.root,data)
+            return self.rsearch(self.root,data)
         else:
             raise IndexError("Binary search tree is empty")
     
@@ -39,6 +39,55 @@ class BST:
             return self.rsearch(root.right,data)
             
     def inroder(self):
+        result=[]
+        self.rinorder(self.root,result)
+        return result
+    
+    def rinorder(self,root,result):
+        if root:
+            self.rinorder(root.left,result)
+            result.append(root.item)
+            self.rinorder(root.right,result)
+            
+    def preroder(self):
+        result=[]
+        self.rpreorder(self.root,result)
+        return result
+    
+    def rpreorder(self,root,result):
+        if root:
+            result.append(root.item)
+            self.rpreorder(root.left,result)
+            self.rpreorder(root.right,result)
+                
+    def postroder(self):
+        result=[]
+        self.rpostroder(self.root,result)
+        return result
+    
+    
+    def rpostroder(self,root,result):
+        if root:
+            self.rpostroder(root.left,result)
+            self.rpostroder(root.right,result)
+            result.append(root.item)
+                
+
+bst=BST()
+print(bst.is_empty())
+bst.insert(50) 
+bst.insert(30)
+bst.insert(40)
+bst.insert(10)
+bst.insert(80)
+bst.insert(70)
+bst.insert(90)
+print("inorder traversal of binary search tree: ",bst.inroder())
+print("preorder traversal of binary search tree: ",bst.preroder())
+print("postorder traversal of binary search tree: ",bst.postroder())
+print(bst.is_empty())
+print(bst.search(90))
+                 
         
         
 
